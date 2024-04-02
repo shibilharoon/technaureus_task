@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:technaureus_task/view/product_screen/products.dart';
-import 'package:technaureus_task/view/customer_screen/customer.dart';
-import 'package:technaureus_task/view/home_screen/home_page.dart';
+import 'package:technaureus_task/view/customer_screen/cart/cart.dart';
+import 'package:technaureus_task/view/customer_screen/customers_screen.dart';
+import 'package:technaureus_task/view/home_screen/home_screen.dart';
+import 'package:technaureus_task/view/new_orrder/new_order.dart';
+import 'package:technaureus_task/view/return_order/return_order.dart';
+
+
+
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -15,11 +20,11 @@ class _BottomBarState extends State<BottomBar> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const HomePage(),
-    ProductScreen(),
-    ProductScreen(),
-    CustomersScreen(),
-    CustomersScreen()
+    const HomeScreen(),
+    const NewOrder(),
+    const Cart(),
+    const ReturnOrder(),
+    const CustomersScreen()
   ];
 
   @override
@@ -28,7 +33,7 @@ class _BottomBarState extends State<BottomBar> {
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Color.fromARGB(255, 3, 12, 23),
+        selectedItemColor: const Color.fromARGB(255, 3, 12, 23),
         unselectedItemColor: Colors.black,
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -39,7 +44,8 @@ class _BottomBarState extends State<BottomBar> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
-              FontAwesomeIcons.house,
+              
+              FontAwesomeIcons.home,
               size: 25,
               color: Color.fromARGB(255, 27, 86, 134),
             ),
